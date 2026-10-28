@@ -36,11 +36,10 @@
 | `Boolean` 字段与 `String` 互转 | `BooleanStringConverter` 委托 Apache Commons BeanUtils 的 `BooleanConverter` |
 | fastjson2 `JSONObject` / `JSONArray` 与 `String` 互转 | `JSONObjectStringConverter` / `JSONArrayStringConverter`（fastjson2 2.x） |
 | `BigDecimal` / `BigInteger` 与 `String` 互转 | `BigDecimalStringConverter` / `BigIntegerStringConverter` 保留字符串原始形态 |
-| 使用 Dozer 的 Spring 环境 | `dozer-spring4` 集成构件以 compile 依赖声明 |
 
 **项目状态：** 活跃开发。
 
-**说明：** 当前 `feature/1.0.x` 快照的仓库树中保留的是构建配置（`pom.xml`、`LICENSE`、Maven Wrapper）；转换器源码保存在本仓库的 git 历史与 `master` 分支中，下文将其作为构件公开 API 描述。
+**源码：** 已从本仓库历史恢复五个转换器实现，并通过 `ConverterContractTest` 验证。
 
 <a id="2-features--status"></a>
 ## 2. 功能与状态
@@ -52,8 +51,7 @@
 | `JSONArrayStringConverter` | 可用 | fastjson2 `JSONArray` <-> `String` |
 | `BigDecimalStringConverter` | 可用 | `BigDecimal` <-> `String`（位于 `converters.number`） |
 | `BigIntegerStringConverter` | 可用 | `BigInteger` <-> `String`（位于 `converters.number`） |
-| `dozer-spring4` 集成 | 可用 | `dozer-spring4` 7.0.0 以 compile 依赖声明 |
-| 单元测试 | 较少 | 仓库历史中存在测试源码（`CodecAndCryptoTest`） |
+| 单元测试 | 5 项契约用例 | `ConverterContractTest` 覆盖五个转换器 |
 | CI 流水线 | 未配置 | 仓库中无 CI 工作流文件 |
 
 <a id="3-requirements--compatibility"></a>
@@ -63,8 +61,8 @@
 |:---|:---|
 | JDK | 8 |
 | Maven | 3.0+ |
-| `dozer-core` | 7.0.0（`com.github.dozermapper`） |
-| `dozer-spring4` | 7.0.0 |
+| `dozer-core` | 6.5.2（`com.github.dozermapper`） |
+| commons-beanutils | 1.9.4 |
 | fastjson2 | 2.0.53 |
 | slf4j-api | 2.0.18 |
 | Lombok | provided 作用域（构建期注解处理） |

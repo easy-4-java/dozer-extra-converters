@@ -36,11 +36,10 @@ Typical use cases:
 | Mapping `Boolean` fields to/from `String` values | `BooleanStringConverter` delegates to Apache Commons BeanUtils `BooleanConverter` |
 | Mapping fastjson2 `JSONObject` / `JSONArray` to/from `String` | `JSONObjectStringConverter` / `JSONArrayStringConverter` (fastjson2 2.x) |
 | Mapping `BigDecimal` / `BigInteger` to/from `String` | `BigDecimalStringConverter` / `BigIntegerStringConverter` preserve plain string forms |
-| Spring environments using Dozer | `dozer-spring4` integration artifact is declared as a compile dependency |
 
 **Project status:** active development.
 
-**Note:** in the current `feature/1.0.x` snapshot the repository tree carries the build configuration (`pom.xml`, `LICENSE`, Maven wrapper); the converter sources are versioned in this repository's git history and on the `master` branch, and are described below as the artifact's public API.
+**Source:** the five converter implementations were restored from this repository's history and are covered by `ConverterContractTest`.
 
 ## 2. Features & Status
 
@@ -51,8 +50,7 @@ Typical use cases:
 | `JSONArrayStringConverter` | Available | fastjson2 `JSONArray` <-> `String` |
 | `BigDecimalStringConverter` | Available | `BigDecimal` <-> `String` (in `converters.number`) |
 | `BigIntegerStringConverter` | Available | `BigInteger` <-> `String` (in `converters.number`) |
-| `dozer-spring4` integration | Available | `dozer-spring4` 7.0.0 declared as compile dependency |
-| Unit tests | Minimal | Test sources exist in the repository lineage (`CodecAndCryptoTest`) |
+| Unit tests | 5 contract cases | `ConverterContractTest` covers all five converters |
 | CI pipeline | Not configured | No CI workflow files in the repository |
 
 ## 3. Requirements & Compatibility
@@ -61,8 +59,8 @@ Typical use cases:
 |:---|:---|
 | JDK | 8 |
 | Maven | 3.0+ |
-| `dozer-core` | 7.0.0 (`com.github.dozermapper`) |
-| `dozer-spring4` | 7.0.0 |
+| `dozer-core` | 6.5.2 (`com.github.dozermapper`) |
+| commons-beanutils | 1.9.4 |
 | fastjson2 | 2.0.53 |
 | slf4j-api | 2.0.18 |
 | Lombok | provided scope (annotation processing at build time) |
